@@ -1,30 +1,63 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="http://chat.vuejs.org/" target="_blank" rel="noopener">Vue Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="noopener">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="container">
+    <b-card no-body>
+      <b-tabs ref="tabs" card>
+          <b-tab title="Texas" active>
+              Tab Contents
+          </b-tab>
+          <b-tab title="Portland">
+              Tab Contents 2
+          </b-tab>
+          <b-tab title="Add Trip">
+              <form class="" action="index.html" method="post">
+                <b-form-input v-model="text1"
+                  type="text"
+                  placeholder="Enter your flight"
+                  :formatter="format"></b-form-input>
+                <b-form-input v-model="text1"
+                  type="text"
+                  placeholder="Enter your lodging"
+                  :formatter="format"></b-form-input>
+                <b-form-input v-model="text1"
+                  type="text"
+                  placeholder="Enter your notes"
+                  :formatter="format"></b-form-input>
+              </form>
+          </b-tab>
+          <b-tab :title="`Tab ${i}`" v-for="i in tabs" :key="i">
+            Tab Contents {{i}}
+            <b-btn size="sm" variant="danger" class="float-right" @click="()=>closeTab(i)">
+              Close tab
+            </b-btn>
+          </b-tab>
+          <b-nav-item slot="tabs" @click.prevent="newTab" href="#">
+            +
+          </b-nav-item>
+        </b-tabs>
+      </b-card>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js PWA'
+      tabs: [],
+      tabCounter: 0
+    }
+  },
+  methods: {
+    closeTab (x) {
+      for (let i = 0; i < this.tabs.length; i++) {
+        if (this.tabs[i] === x) {
+          this.tabs.splice(i, 1)
+        }
+      }
+    },
+    newTab () {
+      this.tabs.push(this.tabCounter++)
     }
   }
 }
