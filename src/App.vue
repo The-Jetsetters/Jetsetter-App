@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+      <img src="http://locatravel.am/images/about_us_icon.png" class="logo" width="50px" height="50px" alt="">
+      <span>Jetsetters</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
       <router-view></router-view>
     </main>
   </div>
@@ -35,12 +36,14 @@ main {
 
 header {
   margin: 0;
-  height: 56px;
+  height: 60px;
   padding: 0 16px 0 24px;
   background-color: #35495E;
   color: #ffffff;
 }
-
+.logo {
+  float: left;
+}
 header span {
   display: block;
   position: relative;
