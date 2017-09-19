@@ -38,7 +38,7 @@ header {
   margin: 0;
   height: 60px;
   padding: 0 16px 0 24px;
-  background-color: #35495E;
+  background-color: #0082c1;
   color: #ffffff;
 }
 .logo {
@@ -53,5 +53,6 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+  padding-left: 55px;
 }
 </style>
