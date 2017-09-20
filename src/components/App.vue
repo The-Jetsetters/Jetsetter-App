@@ -8,16 +8,36 @@
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
     </main>
     <addtrip></addtrip>
-    <hello></hello>
+    <triplist :tripdata="tripdata"></triplist>
   </div>
 </template>
 
 <script>
 import addtrip from './addtrip'
-import hello from './Hello'
+import triplist from './triplist'
+const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
 export default {
   name: 'app',
-  components: {addtrip, hello}
+  components: {addtrip, triplist},
+
+  async mounted () {
+    const tripdata = await fetch(`${tripURL}`)
+    const response = await tripdata.json()
+    this.tripdata = response.map(tripdata => {
+      console.log(tripdata)
+      return tripdata
+    })
+  },
+  data () {
+    return {
+      tripdata: []
+  //     showCollapse: {},
+  //     showFlightCollapse: {},
+  //     showLodgingCollapse: {},
+  //     showRentalCollapse: {},
+  //     showNotesCollapse: {}
+    }
+  }
 }
 </script>
 
