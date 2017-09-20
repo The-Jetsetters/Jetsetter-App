@@ -1,32 +1,62 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="http://chat.vuejs.org/" target="_blank" rel="noopener">Vue Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="noopener">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="container">
+      <div v-for="(trip, index) in tripdata">
+        <b-btn v-b-toggle.collapse1 variant="primary">{{ trip.destination }}</b-btn>
+        <b-collapse id="collapse1" class="mt-2">
+          <b-card>
+            <p class="card-text">{{ trip.startdate }}<br>
+                                  {{ trip.enddate }}</p>
+            <b-btn v-b-toggle.collapse1_inner size="sm">Flight Info</b-btn>
+            <b-collapse id=collapse1_inner class="mt-2">
+              <b-card>{{ trip.airline }}<br>
+                      {{ trip.flightnumber }}<br>
+                      {{ trip.departuretime }}</b-card>
+            </b-collapse>
+            <b-btn v-b-toggle.collapse2_inner size="sm">Lodging Info</b-btn>
+            <b-collapse id=collapse2_inner class="mt-2">
+              <b-card>
+              </b-card>
+            </b-collapse>
+            <b-btn v-b-toggle.collapse3_inner size="sm">Car Rental</b-btn>
+            <b-collapse id=collapse3_inner class="mt-2">
+              <b-card>
+              </b-card>
+            </b-collapse>
+            <b-btn v-b-toggle.collapse4_inner size="sm">Notes</b-btn>
+            <b-collapse id=collapse4_inner class="mt-2">
+              <b-card>
+              </b-card>
+            </b-collapse>
+          </b-card>
+        </b-collapse>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+// import { bBtn, bCollapse, bCard } from 'bootstrap-vue/lib/components'
+const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
 export default {
-  name: 'hello',
+  async mounted () {
+    const tripdata = await fetch(`${tripURL}`)
+    const response = await tripdata.json()
+    this.tripdata = response.map(tripdata => {
+      console.log(tripdata.destination)
+      return tripdata
+    })
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js PWA'
+      tripdata: {}
     }
   }
+  // components: {
+  //   bBtn,
+  //   bCollapse,
+  //   bCard
+  // }
 }
 </script>
 
@@ -35,17 +65,14 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
 }
-
 li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #35495E;
 }
