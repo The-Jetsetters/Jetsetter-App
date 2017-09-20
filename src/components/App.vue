@@ -7,7 +7,7 @@
     <main>
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
     </main>
-    <addtrip></addtrip>
+    <addtrip :on-submit='onSubmit'></addtrip>
     <hello></hello>
   </div>
 </template>
@@ -18,6 +18,25 @@ import hello from './Hello'
 export default {
   name: 'app',
   components: {addtrip, hello}
+  // ,
+  // methods: {
+  //   onSubmit () {
+  //     return
+  //     this.trip = {
+  //       airline: '',
+  //       flightnumber: '',
+  //       departuretime: '',
+  //       lodgingname: '',
+  //       lodgingconf: '',
+  //       rentalconf: '',
+  //       tripnote: ''
+  //     }
+  //   }
+  // }
+  ,
+  data () {
+    
+  }
 }
 </script>
 
