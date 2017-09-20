@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Trip from '@/components/Trip'
+import Triplist from '@/components/Triplist'
+import TripListAdd from '@/components/TripListAdd'
+import TripListTrips from '@/components/TripListTrips'
 
 Vue.use(Router)
 
@@ -13,9 +15,19 @@ export default new Router({
       component: Hello
     },
     {
-      path: '/trip',
-      name: 'Trip',
-      component: Trip
+      path: '/',
+      name: 'Triplist',
+      component: Triplist,
+      children: [
+        {
+          path: 'add',
+          component: TripListAdd
+        },
+        {
+          path: 'trips',
+          component: TripListTrips
+        }
+      ]
     }
   ]
 })

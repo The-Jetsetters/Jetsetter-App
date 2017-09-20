@@ -1,68 +1,69 @@
 <template>
   <div class="hello">
     <div class="container">
-    <b-card no-body>
-      <b-tabs ref="tabs" card>
-          <b-tab title="Texas" active>
-              Tab Contents
-          </b-tab>
-          <b-tab title="Portland">
-              Tab Contents 2
-          </b-tab>
-          <b-tab title="Add Trip">
-              <form class="" action="index.html" method="post">
-                <b-form-input v-model="text1"
-                  type="text"
-                  placeholder="Where are you going?"
-                  :formatter="format"></b-form-input>
-                <b-form-input v-model="text1"
-                  type="text"
-                  placeholder="When does your trip start?"
-                  :formatter="format"></b-form-input>
-                <b-form-input v-model="text1"
-                  type="text"
-                  placeholder="When does your trip end?"
-                  :formatter="format"></b-form-input>
-              </form>
-              <div>
-                <b-button type="submit">I am a Button</b-button>
-              </div>
-          </b-tab>
-          <b-tab :title="`Tab ${i}`" v-for="i in tabs" :key="i">
-            Tab Contents {{i}}
-            <b-btn size="sm" variant="danger" class="float-right" @click="()=>closeTab(i)">
-              Close tab
-            </b-btn>
-          </b-tab>
-          <b-nav-item slot="tabs" @click.prevent="newTab" href="#">
-            +
-          </b-nav-item>
-        </b-tabs>
-      </b-card>
+      <div>
+        <b-btn v-b-toggle.collapse1 variant="primary">{{ tripdata.destination }}</b-btn>
+        <b-collapse id="collapse1" class="mt-2">
+          <b-card>
+            <p class="card-text">{{ tripdata.startdate }}<br>
+                                  {{ tripdata.enddate }}</p>
+            <b-btn v-b-toggle.collapse1_inner size="sm">Flight Info</b-btn>
+            <b-collapse id=collapse1_inner class="mt-2">
+              <b-card>{{ tripdata.airline }}<br>
+                      {{ tripdata.flightnumber }}<br>
+                      {{ tripdata.departuretime }}</b-card>
+            </b-collapse>
+            <b-btn v-b-toggle.collapse2_inner size="sm">Lodging Info</b-btn>
+            <b-collapse id=collapse2_inner class="mt-2">
+              <b-card>
+              </b-card>
+            </b-collapse>
+            <b-btn v-b-toggle.collapse3_inner size="sm">Car Rental</b-btn>
+            <b-collapse id=collapse3_inner class="mt-2">
+              <b-card>
+              </b-card>
+            </b-collapse>
+            <b-btn v-b-toggle.collapse4_inner size="sm">Notes</b-btn>
+            <b-collapse id=collapse4_inner class="mt-2">
+              <b-card>
+              </b-card>
+            </b-collapse>
+          </b-card>
+        </b-collapse>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+// import { bBtn, bCollapse, bCard } from 'bootstrap-vue/lib/components'
+
+const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
 export default {
+  async mounted () {
+    const tripdata = await fetch(`${tripURL}`)
+    const response = await tripdata.json()
+    this.tripdata = response.map(tripdata => {
+      console.log(tripdata)
+      return tripdata
+    })[0]
+    // const flightdata = await fetch(`${flightURL}`)
+    // const response2 = await flightdata.json()
+    // this.flightdata = response2.map(flightdata => {
+    //   console.log(flightdata)
+    //   return flightdata
+    // })[0]
+  },
   data () {
     return {
-      tabs: [],
-      tabCounter: 0
-    }
-  },
-  methods: {
-    closeTab (x) {
-      for (let i = 0; i < this.tabs.length; i++) {
-        if (this.tabs[i] === x) {
-          this.tabs.splice(i, 1)
-        }
-      }
-    },
-    newTab () {
-      this.tabs.push(this.tabCounter++)
+      tripdata: {}
     }
   }
+  // components: {
+  //   bBtn,
+  //   bCollapse,
+  //   bCard
+  // }
 }
 </script>
 
