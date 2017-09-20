@@ -13,17 +13,20 @@
               <form class="" action="index.html" method="post">
                 <b-form-input v-model="text1"
                   type="text"
-                  placeholder="Enter your flight"
+                  placeholder="Where are you going?"
                   :formatter="format"></b-form-input>
                 <b-form-input v-model="text1"
                   type="text"
-                  placeholder="Enter your lodging"
+                  placeholder="When does your trip start?"
                   :formatter="format"></b-form-input>
                 <b-form-input v-model="text1"
                   type="text"
-                  placeholder="Enter your notes"
+                  placeholder="When does your trip end?"
                   :formatter="format"></b-form-input>
               </form>
+              <div>
+                <b-button type="submit">I am a Button</b-button>
+              </div>
           </b-tab>
           <b-tab :title="`Tab ${i}`" v-for="i in tabs" :key="i">
             Tab Contents {{i}}
