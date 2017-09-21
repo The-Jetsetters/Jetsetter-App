@@ -6,6 +6,7 @@
     </header>
     <main>
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
+      <router-view></router-view>
     </main>
     <addtrip></addtrip>
     <hello></hello>
@@ -27,19 +28,16 @@ export default {
 body {
   margin: 0;
 }
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-
 main {
   text-align: center;
   margin-top: 40px;
 }
-
 header {
   margin: 0;
   height: 60px;
