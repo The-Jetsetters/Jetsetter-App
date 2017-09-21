@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Main from '@/components/Main'
 import Home from '@/components/Home'
 import Triplist from '@/components/Triplist'
-import Addtrip from '@/components/addtrip'
+import Addtrip from '@/components/Addtrip'
 
 Vue.use(Router)
 
