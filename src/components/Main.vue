@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h5>E-mail</h5>
     <b-form-input v-model="email"
                   type="text"
@@ -16,3 +16,9 @@
     <b-button variant="primary" size="lg" href="#/home">Login</b-button>
   </div>
 </template>
+
+<style>
+h5 {
+  margin: 3vh;
+}
+</style>
