@@ -34,10 +34,13 @@
         </b-collapse>
       </div>
     </div>
+    <Icon></Icon>
   </div>
+  <!-- <router-view></router-view> -->
 </template>
 
 <script>
+import Icon from './Icon'
 // import { bBtn, bCollapse, bCard } from 'bootstrap-vue/lib/components'
 const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
 export default {
@@ -60,6 +63,9 @@ export default {
       showRentalCollapse: {},
       showNotesCollapse: {}
     }
+  },
+  components: {
+    Icon
   }
 }
 </script>
