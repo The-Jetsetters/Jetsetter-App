@@ -148,7 +148,6 @@ export default {
            console.log(response)
          }
        })
-      this.showCompose = false
     }
   }
 }
