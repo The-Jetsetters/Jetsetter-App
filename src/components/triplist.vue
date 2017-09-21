@@ -39,20 +39,21 @@
 
 <script>
 // import { bBtn, bCollapse, bCard } from 'bootstrap-vue/lib/components'
-// const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
+const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
 export default {
   name: 'triplist',
   props: ['tripdata'],
-  // async mounted () {
-  //   const tripdata = await fetch(`${tripURL}`)
-  //   const response = await tripdata.json()
-  //   this.tripdata = response.map(tripdata => {
-  //     console.log(tripdata)
-  //     return tripdata
-  //   })
-  // },
+  async mounted () {
+    const tripdata = await fetch(`${tripURL}`)
+    const response = await tripdata.json()
+    this.tripdata = response.map(tripdata => {
+      console.log(tripdata)
+      return tripdata
+    })
+  },
   data () {
     return {
+      tripdata: {},
       showCollapse: {},
       showFlightCollapse: {},
       showLodgingCollapse: {},
@@ -60,11 +61,6 @@ export default {
       showNotesCollapse: {}
     }
   }
-  // components: {
-  //   bBtn,
-  //   bCollapse,
-  //   bCard
-  // }
 }
 </script>
 
@@ -84,8 +80,4 @@ li {
 a {
   color: #35495E;
 }
-.button {
-  margin: auto;
-}
-
 </style>
