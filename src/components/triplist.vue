@@ -6,7 +6,7 @@
         <b-collapse v-model="showCollapse[index]" class="mt-2">
           <b-card>
             <div class="editDeleteGroup">
-              <b-btn size="sm" variant="warning">Edit Trip</b-btn>
+              <edit-button></edit-button>
               <b-btn size="sm" variant="danger">Delete Trip</b-btn>
             </div>
             <p class="card-text">{{ trip.startdate }}<br>
@@ -45,6 +45,7 @@
 
 <script>
 import Icon from './Icon'
+import editButton from './EditModal'
 // import { bBtn, bCollapse, bCard } from 'bootstrap-vue/lib/components'
 const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips'
 export default {
@@ -69,7 +70,8 @@ export default {
     }
   },
   components: {
-    Icon
+    Icon,
+    editButton
   }
 }
 </script>
