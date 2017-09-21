@@ -5,6 +5,10 @@
         <b-btn @click="showCollapse[index] = !showCollapse[index]" variant="primary">{{ trip.destination }}</b-btn>
         <b-collapse v-model="showCollapse[index]" class="mt-2">
           <b-card>
+            <div class="editDeleteGroup">
+              <b-btn size="sm" variant="warning">Edit Trip</b-btn>
+              <b-btn size="sm" variant="danger">Delete Trip</b-btn>
+            </div>
             <p class="card-text">{{ trip.startdate }}<br>
                                   {{ trip.enddate }}</p>
             <b-btn @click="showFlightCollapse[index] = !showFlightCollapse[index]" size="sm">Flight Info</b-btn>
@@ -74,5 +78,17 @@ export default {
 <style>
 button.btn.btn-primary {
   margin: 1vh;
+}
+
+button.btn.btn-warning.btn-sm {
+  margin-right: 10vw;
+}
+
+button.btn.btn-danger.btn-sm {
+  margin-left: 10vw;
+}
+
+.card-text {
+  margin-top: 3vh;
 }
 </style>
