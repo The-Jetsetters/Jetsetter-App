@@ -1,7 +1,7 @@
 <template>
   <div class="icon">
     <b-container>
-      <b-row>
+      <b-row class="icongroup">
         <b-col>
           <a href="https://www.google.com/maps">
           <b-img center src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/Location_marker_pin_map_gps.png" width="50px" height="50px" />
@@ -31,6 +31,11 @@ export default {
 <style>
 .icon {
   margin: 5vh;
+}
+
+.icongroup {
+  margin: auto;
+  width: 80%;
 }
 
 </style>
