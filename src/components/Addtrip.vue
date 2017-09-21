@@ -72,20 +72,20 @@
                         placeholder="Do you have a car rental confirmation number?"
           ></b-form-input>
         </b-form-group>
-        <b-form-group id="tripnoteGroup"
-                      label="Special notes for your trip!">
-          <b-form-textarea id="tripnote"
-                           v-model="sendform.tripnote"
-                           placeholder="Enter notes about your trip here."
-                           :rows="3"
-                           :max-rows="6">
-          </b-form-textarea>
-        </b-form-group>
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="secondary">Reset</b-button>
-      </b-form>
-    </div>
+      <b-form-group id="tripnoteGroup"
+                    label="Special notes for your trip!">
+        <b-form-textarea id="tripnote"
+                         v-model="sendform.tripnote"
+                         placeholder="Enter notes about your trip here."
+                         :rows="3"
+                         :max-rows="6">
+        </b-form-textarea>
+      </b-form-group>
+      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="reset" variant="secondary">Reset</b-button>
+    </b-form>
   </div>
+</div>
 </template>
 
 <script>
