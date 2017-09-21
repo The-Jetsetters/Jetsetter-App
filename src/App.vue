@@ -8,7 +8,6 @@
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
       <router-view></router-view>
     </main>
-
   </div>
 </template>
 
