@@ -54,7 +54,6 @@ export default {
     const tripdata = await fetch(`${tripURL}`)
     const response = await tripdata.json()
     this.tripdata = response.map(tripdata => {
-      console.log(tripdata)
       return tripdata
     })
   },
