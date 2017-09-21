@@ -7,7 +7,7 @@
           <b-card>
             <div class="editDeleteGroup">
               <b-btn size="sm" variant="warning">Edit Trip</b-btn>
-              <b-btn size="sm" variant="danger">Delete Trip</b-btn>
+              <b-btn size="sm" variant="danger" @click="deletetrip(trip)">Delete Trip</b-btn>
             </div>
             <p class="card-text">{{ trip.startdate }}<br>
                                   {{ trip.enddate }}</p>
@@ -60,7 +60,7 @@ export default {
   },
   data () {
     return {
-      tripdata: {},
+      tripdata: [],
       showCollapse: {},
       showFlightCollapse: {},
       showLodgingCollapse: {},
@@ -68,8 +68,37 @@ export default {
       showNotesCollapse: {}
     }
   },
-  components: {
-    Icon
+  methods: {
+    deletetrip (trip) {
+      const tripselected = trip.id
+      this.tripdata = this.tripdata.filter(trip => {
+        if (tripselected === trip.id) {
+          return false
+        } else {
+          return true
+        }
+      })
+      const data = {
+        'id': trip.id,
+        'command': 'delete'
+      }
+      const settings = {
+        method: 'DELETE',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+      fetch(`${tripURL}/${trip.id}`, settings)
+       .then(response => {
+         if (response.ok) {
+           console.log(response)
+         }
+       })
+    },
+    components: {
+      Icon
+    }
   }
 }
 </script>
