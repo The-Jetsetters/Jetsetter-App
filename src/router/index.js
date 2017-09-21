@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Main from '@/components/Main'
 import Triplist from '@/components/Triplist'
-import TripListAdd from '@/components/TripListAdd'
-import TripListTrips from '@/components/TripListTrips'
+import Addtrip from '@/components/Addtrip'
 
 Vue.use(Router)
 
@@ -11,23 +10,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Main',
+      component: Main
     },
     {
-      path: '/',
+      path: '/triplist',
       name: 'Triplist',
-      component: Triplist,
-      children: [
-        {
-          path: 'add',
-          component: TripListAdd
-        },
-        {
-          path: 'trips',
-          component: TripListTrips
-        }
-      ]
+      component: Triplist
+    },
+    {
+      path: '/addtrip',
+      name: 'Addtrip',
+      component: Addtrip
     }
   ]
 })
