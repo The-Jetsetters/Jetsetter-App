@@ -9,15 +9,17 @@
     </main>
     <addtrip></addtrip>
     <hello></hello>
+    <icon></icon>
   </div>
 </template>
 
 <script>
 import addtrip from './addtrip'
 import hello from './Hello'
+import icon from './icon'
 export default {
   name: 'app',
-  components: {addtrip, hello}
+  components: {addtrip, hello, icon}
 }
 </script>
 
