@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <img src="http://locatravel.am/images/about_us_icon.png" class="logo" width="50px" height="50px" alt="">
-      <span>Jetsetters</span>
+      <a href="#/" style="color:white"><span>Jetsetters</span></a>
     </header>
     <main>
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
