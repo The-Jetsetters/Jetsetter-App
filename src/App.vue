@@ -8,12 +8,19 @@
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
       <router-view></router-view>
     </main>
+    <addtrip></addtrip>
+    <hello></hello>
+    <icon></icon>
   </div>
 </template>
 
 <script>
+import addtrip from './addtrip'
+import hello from './Hello'
+import icon from './icon'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {addtrip, hello, icon}
 }
 </script>
 
