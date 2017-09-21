@@ -25,10 +25,11 @@
         </b-form-group>
         <b-form-group id="airlineGroup"
                       label="Select an Airline:" label-for="airlineName">
-          <b-form-input id="airlineName"
+          <b-form-select id="airlineName"
                         v-model="sendform.airline"
                         placeholder="Select Airline"
-          ></b-form-input>
+                        :options="options" class="mb-3"
+          ></b-form-select>
         </b-form-group>
         <b-form-group id="departuretimeGroup"
                       label="" label-for="departuretime">
@@ -100,7 +101,22 @@ export default {
   },
   data () {
     return {
-      tripdata: {}
+      tripdata: {},
+      options: [
+        { value: null, text: 'Select an Airline:' },
+        { value: 'American Airlines', text: 'American Airlines' },
+        { value: 'Alaska Airlines', text: 'Alaska Airlines' },
+        { value: 'Allegiant Air', text: 'Allegiant Air' },
+        { value: 'Delta Air Lines', text: 'Delta Air Lines' },
+        { value: 'Frontier Airlines', text: 'Frontier Airlines' },
+        { value: 'Hawaiian Airlines', text: 'Hawaiian Airlines' },
+        { value: 'JetBlue Airways', text: 'JetBlue Airways' },
+        { value: 'Southwest Airlines', text: 'Southwest Airlines' },
+        { value: 'Spirit Airlines', text: 'Spirit Airlines' },
+        { value: 'Sun Country Airlines', text: 'Sun Country Airlines' },
+        { value: 'United Airlines', text: 'United Airlines' },
+        { value: 'Virgin America', text: 'Virgin America' }
+      ]
     }
   },
   methods: {

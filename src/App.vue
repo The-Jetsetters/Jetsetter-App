@@ -2,12 +2,13 @@
   <div id="app">
     <header>
       <img src="http://locatravel.am/images/about_us_icon.png" class="logo" width="50px" height="50px" alt="">
-      <a href="#/home" style="color:white"><span>Jetsetters</span></a>
+      <a href="#/" style="color:white"><span>Jetsetters</span></a>
     </header>
     <main>
       <img src="http://locatravel.am/images/about_us_icon.png"width="290px" height="250px" alt="">
       <router-view></router-view>
     </main>
+
   </div>
 </template>
 
