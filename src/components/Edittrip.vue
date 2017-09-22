@@ -90,8 +90,7 @@
 </template>
 
 <script>
-// console.log(trip)
-const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips/2'
+const tripURL = 'https://stark-harbor-90587.herokuapp.com/trips/1'
 export default {
   async mounted () {
     const tripdata = await fetch(`${tripURL}`)
