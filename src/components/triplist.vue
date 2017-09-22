@@ -37,10 +37,9 @@
           </b-card>
         </b-collapse>
       </div>
+      <Icon></Icon>
     </div>
-    <Icon></Icon>
   </div>
-  <!-- <router-view></router-view> -->
 </template>
 
 <script>
