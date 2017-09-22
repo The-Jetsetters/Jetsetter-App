@@ -23,7 +23,7 @@
 * Bootstrap-vue
 * Firebase/Heroku
 
-<iframe src="https://giphy.com/embed/j26eMYjrvekjS" width="269" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/j26eMYjrvekjS"></a></p>
+![gif](https://media.giphy.com/media/j26eMYjrvekjS/giphy.gif)
 
 ## Build Setup
 
