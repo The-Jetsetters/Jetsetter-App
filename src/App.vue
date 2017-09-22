@@ -29,7 +29,7 @@ body {
 }
 main {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 41px;
 }
 header {
   margin: 0;

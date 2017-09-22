@@ -4,6 +4,7 @@ import Main from '@/components/Main'
 import Home from '@/components/Home'
 import Triplist from '@/components/Triplist'
 import Addtrip from '@/components/Addtrip'
+import Edittrip from '@/components/Edittrip'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/addtrip',
       name: 'Addtrip',
       component: Addtrip
+    },
+    {
+      path: '/edittrip/:id',
+      name: 'Edittrip',
+      component: Edittrip
     }
   ]
 })
